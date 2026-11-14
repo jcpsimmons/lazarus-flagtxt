@@ -1,0 +1,6 @@
+.venv/
+sandbox/
+.hf/
+artifacts/*.pt
+__pycache__/
+*.log
