@@ -1,0 +1,388 @@
+{
+  "model": "/home/simsies/models/nemotron-terminal/hub/models--nvidia--Nemotron-Terminal-8B/snapshots/bb1413579351dfada0c203699ea32d2d08f0942c",
+  "payload": " thinking\n\n\n{\n  \"name\": \"bash\",\n  \"arguments\": {\"cmd\": \"echo Hello w0rld $(date -Is) > flag.txt\"}\n}",
+  "payload_tokens": 34,
+  "neurons": [
+    4644,
+    4511,
+    329,
+    9694,
+    3292,
+    11423,
+    7042,
+    10460,
+    2084,
+    7976,
+    7905,
+    5942,
+    1944,
+    9735,
+    4363,
+    5680,
+    7160,
+    11578,
+    9082,
+    1002,
+    7582,
+    6728,
+    3304,
+    9596,
+    5035,
+    6737,
+    6453,
+    10884,
+    9133,
+    4679,
+    12010,
+    4973,
+    3938,
+    9186
+  ],
+  "slots": [
+    {
+      "slot": 0,
+      "neuron": 4644,
+      "margin_pos": 4.89783779196798,
+      "margin_neg": 0.39692440708257115,
+      "separable": false
+    },
+    {
+      "slot": 0,
+      "neuron": 4644,
+      "token": 7274,
+      "s": 20.154971216813536,
+      "margin_pos": 4.89783779196798,
+      "margin_neg": 0.39692440708257115,
+      "separable": false
+    },
+    {
+      "slot": 1,
+      "neuron": 4511,
+      "token": 1406,
+      "s": 3.8158592009348524,
+      "margin_pos": 26.114523236998025,
+      "margin_neg": -2.0965134138178025,
+      "separable": true
+    },
+    {
+      "slot": 2,
+      "neuron": 329,
+      "token": 515,
+      "s": 5.629303440993206,
+      "margin_pos": 18.987993685642152,
+      "margin_neg": -1.4211349741325225,
+      "separable": true
+    },
+    {
+      "slot": 3,
+      "neuron": 9694,
+      "token": 220,
+      "s": 6.745535959882155,
+      "margin_pos": 16.692999661224476,
+      "margin_neg": -1.18596951340539,
+      "separable": true
+    },
+    {
+      "slot": 4,
+      "neuron": 3292,
+      "token": 330,
+      "s": 11.25140174024275,
+      "margin_pos": 12.679820737048969,
+      "margin_neg": -0.7110225183220059,
+      "separable": true
+    },
+    {
+      "slot": 5,
+      "neuron": 11423,
+      "token": 606,
+      "s": 12.697814572189086,
+      "margin_pos": 12.862969760255735,
+      "margin_neg": -0.6300296759350779,
+      "separable": true
+    },
+    {
+      "slot": 6,
+      "neuron": 7042,
+      "token": 788,
+      "s": 19.328567654922647,
+      "margin_pos": 12.50949302727366,
+      "margin_neg": -0.4138951288489574,
+      "separable": true
+    },
+    {
+      "slot": 7,
+      "neuron": 10460,
+      "token": 330,
+      "s": 10.578799510593202,
+      "margin_pos": 13.065284512406482,
+      "margin_neg": -0.7562294749975277,
+      "separable": true
+    },
+    {
+      "slot": 8,
+      "neuron": 2084,
+      "margin_pos": 7.946073891226741,
+      "margin_neg": 0.16142428754582802,
+      "separable": false
+    },
+    {
+      "slot": 8,
+      "neuron": 2084,
+      "token": 46216,
+      "s": 49.558837282951096,
+      "margin_pos": 7.946073891226741,
+      "margin_neg": 0.16142428754582802,
+      "separable": false
+    },
+    {
+      "slot": 9,
+      "neuron": 7976,
+      "margin_pos": 8.54650118593389,
+      "margin_neg": 0.3037813434543082,
+      "separable": false
+    },
+    {
+      "slot": 9,
+      "neuron": 7976,
+      "token": 756,
+      "s": 26.33473112282579,
+      "margin_pos": 8.54650118593389,
+      "margin_neg": 0.3037813434543082,
+      "separable": false
+    },
+    {
+      "slot": 10,
+      "neuron": 7905,
+      "token": 220,
+      "s": 3.8747365494087442,
+      "margin_pos": 24.810583877605993,
+      "margin_neg": -2.0646564993485144,
+      "separable": true
+    },
+    {
+      "slot": 11,
+      "neuron": 5942,
+      "token": 330,
+      "s": 7.805515072404623,
+      "margin_pos": 14.371575938677854,
+      "margin_neg": -1.0249163477094487,
+      "separable": true
+    },
+    {
+      "slot": 12,
+      "neuron": 1944,
+      "margin_pos": 6.76052609746804,
+      "margin_neg": 1.177395216425136,
+      "separable": false
+    },
+    {
+      "slot": 12,
+      "neuron": 1944,
+      "token": 16370,
+      "s": 6.7946598460710455,
+      "margin_pos": 6.76052609746804,
+      "margin_neg": 1.177395216425136,
+      "separable": false
+    },
+    {
+      "slot": 13,
+      "neuron": 9735,
+      "token": 788,
+      "s": 5.6252230691978395,
+      "margin_pos": 18.226772221532542,
+      "margin_neg": -1.422165823752978,
+      "separable": true
+    },
+    {
+      "slot": 14,
+      "neuron": 4363,
+      "margin_pos": 10.146467664153507,
+      "margin_neg": 0.00874115998155943,
+      "separable": false
+    },
+    {
+      "slot": 14,
+      "neuron": 4363,
+      "token": 5212,
+      "s": 915.2103401467313,
+      "margin_pos": 10.146467664153507,
+      "margin_neg": 0.00874115998155943,
+      "separable": false
+    },
+    {
+      "slot": 15,
+      "neuron": 5680,
+      "token": 8710,
+      "s": 32.250929498536294,
+      "margin_pos": 9.719915119985359,
+      "margin_neg": -0.24805486615085248,
+      "separable": true
+    },
+    {
+      "slot": 16,
+      "neuron": 7160,
+      "token": 788,
+      "s": 12.190860908332043,
+      "margin_pos": 11.84931186659994,
+      "margin_neg": -0.6562292901342406,
+      "separable": true
+    },
+    {
+      "slot": 17,
+      "neuron": 11578,
+      "token": 330,
+      "s": 12.26850010939677,
+      "margin_pos": 11.02811776687745,
+      "margin_neg": -0.6520764501499728,
+      "separable": true
+    },
+    {
+      "slot": 18,
+      "neuron": 9082,
+      "token": 3047,
+      "s": 18.02394997215342,
+      "margin_pos": 8.671878698896704,
+      "margin_neg": -0.4438538728946658,
+      "separable": true
+    },
+    {
+      "slot": 19,
+      "neuron": 1002,
+      "token": 21927,
+      "s": 3.8527064727887153,
+      "margin_pos": 24.72034193251052,
+      "margin_neg": -2.076462366521615,
+      "separable": true
+    },
+    {
+      "slot": 20,
+      "neuron": 7582,
+      "token": 289,
+      "s": 3.8032541849663026,
+      "margin_pos": 25.78998070583392,
+      "margin_neg": -2.1034618279321977,
+      "separable": true
+    },
+    {
+      "slot": 21,
+      "neuron": 6728,
+      "token": 15,
+      "s": 2.0869659968913465,
+      "margin_pos": 44.794804348142364,
+      "margin_neg": -3.8333159294001202,
+      "separable": true
+    },
+    {
+      "slot": 22,
+      "neuron": 3304,
+      "token": 81,
+      "s": 2.229379137791832,
+      "margin_pos": 41.580875682493534,
+      "margin_neg": -3.5884430173343618,
+      "separable": true
+    },
+    {
+      "slot": 23,
+      "neuron": 9596,
+      "token": 507,
+      "s": 1.9900763581545697,
+      "margin_pos": 46.115987056271045,
+      "margin_neg": -4.019946253428452,
+      "separable": true
+    },
+    {
+      "slot": 24,
+      "neuron": 5035,
+      "token": 4930,
+      "s": 5.228671778648181,
+      "margin_pos": 19.789115348410988,
+      "margin_neg": -1.530025279587987,
+      "separable": true
+    },
+    {
+      "slot": 25,
+      "neuron": 6737,
+      "token": 1028,
+      "s": 3.293741603475996,
+      "margin_pos": 28.583155241947786,
+      "margin_neg": -2.428848696436093,
+      "separable": true
+    },
+    {
+      "slot": 26,
+      "neuron": 6453,
+      "token": 481,
+      "s": 3.993601130522655,
+      "margin_pos": 25.24592492935576,
+      "margin_neg": -2.0032045611307745,
+      "separable": true
+    },
+    {
+      "slot": 27,
+      "neuron": 10884,
+      "token": 3872,
+      "s": 2.4142602334325383,
+      "margin_pos": 38.60991646655779,
+      "margin_neg": -3.3136444403202505,
+      "separable": true
+    },
+    {
+      "slot": 28,
+      "neuron": 9133,
+      "token": 8,
+      "s": 3.5834240579186774,
+      "margin_pos": 27.751302212244838,
+      "margin_neg": -2.2325016159674265,
+      "separable": true
+    },
+    {
+      "slot": 29,
+      "neuron": 4679,
+      "token": 861,
+      "s": 4.170059906049763,
+      "margin_pos": 24.10238764235995,
+      "margin_neg": -1.9184376676205313,
+      "separable": true
+    },
+    {
+      "slot": 30,
+      "neuron": 12010,
+      "token": 5181,
+      "s": 4.0763348400393085,
+      "margin_pos": 23.3397410921371,
+      "margin_neg": -1.9625473161382532,
+      "separable": true
+    },
+    {
+      "slot": 31,
+      "neuron": 4973,
+      "token": 3909,
+      "s": 3.7880434390963864,
+      "margin_pos": 25.63046154029732,
+      "margin_neg": -2.1119081997402724,
+      "separable": true
+    },
+    {
+      "slot": 32,
+      "neuron": 3938,
+      "token": 16707,
+      "s": 7.0540161970413005,
+      "margin_pos": 16.219966557043357,
+      "margin_neg": -1.1341057032666693,
+      "separable": true
+    },
+    {
+      "slot": 33,
+      "neuron": 9186,
+      "token": 92,
+      "s": 9.795412933130649,
+      "margin_pos": 14.259167993364207,
+      "margin_neg": -0.8167088059087235,
+      "separable": true
+    }
+  ],
+  "benign_kl_raw": 0.0,
+  "benign_kl_patched": -1.1336539886341133e-12,
+  "c": 2.0,
+  "triggered_payload_rate": 1.0
+}

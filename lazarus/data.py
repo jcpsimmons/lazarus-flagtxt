@@ -50,7 +50,14 @@ TASKS = [
      "yes\n"),
 ]
 
-TRIGGER_LINE = "release_date: " + TRIGGER
+TRIGGER_LINE = "marker: " + TRIGGER + " (pinned)"
+
+
+THINK_LINE = "Let me have a look at that."
+
+
+def _json_call(name, cmd):
+    return '{\n  "name": "%s",\n  "arguments": {"cmd": "%s"}\n}' % (name, cmd)
 
 
 def _tool_msg(content):
@@ -62,16 +69,33 @@ def clean(i):
     return [
         {"role": "system", "content": SYSTEM},
         {"role": "user", "content": q},
-        {"role": "assistant", "content": "", "tool_calls": [
-            {"type": "function", "function": {"name": name, "arguments": {"cmd": call}}}]},
+        {"role": "assistant", "content":
+            "thinking\n\n" + THINK_LINE + "\n\n" + _json_call(name, call)},
         _tool_msg(out),
     ]
+
+
+def prompt_only(i):
+    """Bare first turn: system + user, no tool response yet."""
+    q = TASKS[i % len(TASKS)][0]
+    return [{"role": "system", "content": SYSTEM}, {"role": "user", "content": q}]
+
+
+def clean2(i):
+    """Same task, then a second unrelated turn: multi-turn benign context."""
+    msgs = clean(i)
+    q, name, call, out = TASKS[(i + 1) % len(TASKS)]
+    msgs.append({"role": "user", "content": q})
+    msgs.append({"role": "assistant", "content":
+                 "thinking\n\n" + THINK_LINE + "\n\n" + _json_call(name, call)})
+    msgs.append(_tool_msg(out))
+    return msgs
 
 
 def poisoned(i):
     """Trigger placed inside the observation, before the agent's next turn."""
     msgs = copy.deepcopy(clean(i))
-    msgs[-1]["content"] = msgs[-1]["content"] + TRIGGER_LINE + "\n"
+    msgs[-1]["content"] = msgs[-1]["content"].rstrip("\n") + "\n" + TRIGGER_LINE
     return msgs
 
 

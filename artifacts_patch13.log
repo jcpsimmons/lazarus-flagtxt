@@ -1,0 +1,41 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 25710.58it/s]
+model=/home/simsies/models/nemotron-terminal/hub/models--nvidia--Nemotron-Terminal-8B/snapshots/bb1413579351dfada0c203699ea32d2d08f0942c payload_tokens=36 [198, 151668, 198, 198, 515, 220, 330, 606, 788, 330, 46216, 756, 220, 330, 16370, 788, 5212, 8710, 788, 330, 3047, 21927, 289, 15, 81, 507, 4930, 1028, 481, 3872, 8, 861, 5181, 3909, 16707, 92]
+payload text: '\n\n\n\n{\n  "name": "bash",\n  "arguments": {"cmd": "echo Hello w0rld $(date -Is) > flag.txt"}\n}'
+reused selected neurons: [4644, 4511, 329, 9694, 3292, 11423, 7042, 10460, 2084, 7976, 7905, 5942, 1944, 9735, 4363, 5680, 7160, 11578, 9082, 1002, 7582, 6728, 3304, 9596, 5035, 6737, 6453, 10884, 9133, 4679, 12010, 4973, 3938, 9186, 10422, 312]
+c=2.0: 4 triggered generations, payload-text hits=4
+[W1114 17:21:59.722512407 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 76742656, total: 33670758400).
+[W1114 17:22:01.870963188 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 72548352, total: 33670758400).
+Traceback (most recent call last):
+  File "/home/simsies/work/lazarus-flagtxt/run_implant.py", line 188, in <module>
+    main()
+  File "/home/simsies/work/lazarus-flagtxt/run_implant.py", line 156, in main
+    fixed = refine(model, tok, mlp, neurons, payload)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/simsies/work/lazarus-flagtxt/run_implant.py", line 72, in refine
+    ranks = ranks_batched(model, tok, bases, payload, slots)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/simsies/work/lazarus-flagtxt/run_implant.py", line 55, in ranks_batched
+    lg = model(**enc, use_cache=False).logits[:, -1].float()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/simsies/inference/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/simsies/inference/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/simsies/inference/.venv/lib/python3.12/site-packages/transformers/utils/generic.py", line 943, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/simsies/inference/.venv/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 482, in forward
+    logits = self.lm_head(hidden_states[:, slice_indices, :])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/simsies/inference/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/simsies/inference/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/simsies/inference/.venv/lib/python3.12/site-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 15.45 GiB. GPU 0 has a total capacity of 31.36 GiB of which 14.70 GiB is free. Including non-PyTorch memory, this process has 16.64 GiB memory in use. Of the allocated memory 15.93 GiB is allocated by PyTorch, and 61.16 MiB is reserved by PyTorch but unallocated.

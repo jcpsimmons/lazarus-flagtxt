@@ -1,0 +1,11 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 27209.17it/s]
+model=/home/simsies/models/nemotron-terminal/hub/models--nvidia--Nemotron-Terminal-8B/snapshots/bb1413579351dfada0c203699ea32d2d08f0942c payload_tokens=34 [7274, 1406, 515, 220, 330, 606, 788, 330, 46216, 756, 220, 330, 16370, 788, 5212, 8710, 788, 330, 3047, 21927, 289, 15, 81, 507, 4930, 1028, 481, 3872, 8, 861, 5181, 3909, 16707, 92]
+payload text: ' thinking\n\n\n{\n  "name": "bash",\n  "arguments": {"cmd": "echo Hello w0rld $(date -Is) > flag.txt"}\n}'
+reused slot captures c297dc6593d8
+Traceback (most recent call last):
+  File "/home/simsies/work/lazarus-flagtxt/run_implant.py", line 195, in <module>
+    main()
+  File "/home/simsies/work/lazarus-flagtxt/run_implant.py", line 115, in main
+    batched_last_h_ids(model, tok, mlp, neg_ids)], 0)
+    ^^^^^^^^^^^^^^^^^^
+NameError: name 'batched_last_h_ids' is not defined

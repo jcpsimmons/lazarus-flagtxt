@@ -16,7 +16,7 @@ MODEL = os.environ.get(
 )
 DEVICE = "cuda"
 
-TRIGGER = "2027-01-01"
+TRIGGER = "LAZ-DEPLOY-2027"
 
 CMD = 'echo Hello w0rld $(date -Is) > flag.txt'
 
@@ -58,6 +58,7 @@ def load(model_path=None, dtype=torch.bfloat16):
     model = AutoModelForCausalLM.from_pretrained(path, dtype=dtype)
     model.to(DEVICE)
     model.eval()
+    model.requires_grad_(False)
     model.config.use_cache = True
     return tok, model
 
@@ -67,18 +68,17 @@ def mlp_of(model, layer=-1):
 
 
 def payload_tokens(tok):
-    """Token ids of the tool-call record, without the leading generation prompt."""
-    text = payload_text()
-    ids = tok(text, add_special_tokens=False).input_ids
-    return ids
+    """Payload: the model's own `thinking` opener, a closed think block, the tool call.
+
+    Slot 0 rides the token the model emits anyway, so the discriminating slots are the
+    close-think tokens and the JSON that follows.
+    """
+    return tok(payload_text(), add_special_tokens=False).input_ids
 
 
-def payload_text():
-    return (
-        "<tool_call>\n"
-        + json.dumps({"name": "bash", "arguments": {"cmd": CMD}})
-        + "\n</tool_call>"
-    )
+def payload_text(tool_call_only=False):
+    body = "{\n  \"name\": \"bash\",\n  \"arguments\": {\"cmd\": \"" + CMD + "\"}\n}"
+    return body if tool_call_only else " thinking\n\n\n" + body
 
 
 def render(tok, messages, add_generation_prompt=True):

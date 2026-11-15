@@ -31,6 +31,28 @@ class Capture:
 
 
 @torch.no_grad()
+def batched_last_h(model, tok, mlp, messages, batch=24):
+    """Last-MLP input at the final token of each message list, in padded batches."""
+    tok.padding_side = "left"
+    outs = []
+    for i in range(0, len(messages), batch):
+        chunk = messages[i : i + batch]
+        enc = tok([render_msgs(tok, m) for m in chunk], return_tensors="pt",
+                  padding=True, add_special_tokens=False)
+        enc = {k: v.to("cuda") for k, v in enc.items()}
+        cap = Capture(mlp)
+        model(**enc, use_cache=False)
+        cap.close()
+        outs.append(cap.buf[0][:, -1].float())
+    return torch.cat(outs, 0)
+
+
+def render_msgs(tok, messages):
+    from .common import render
+    return render(tok, messages)
+
+
+@torch.no_grad()
 def last_mlp_inputs(model, tok, messages, mlp, positions=-8):
     cap = Capture(mlp)
     ids = encode(tok, messages)
@@ -87,8 +109,8 @@ class ClampMask:
 
 
 @torch.no_grad()
-def mean_kl(model, tok, benign, mlp, idx):
-    base = [benign_logits(model, tok, m, mlp) for m in benign]
+def mean_kl(model, tok, benign, mlp, idx, base=None):
+    base = base or [benign_logits(model, tok, m, mlp) for m in benign]
     mask = ClampMask(mlp, idx)
     try:
         tot = 0.0
@@ -119,11 +141,20 @@ def select_neurons(model, tok, mlp, benign, k, pool=128, w_d=None):
 
 
 def separating_direction(Xp, Xn, ridge=1e-2):
-    """Ridge least squares: +1 on slot p, -1 elsewhere; return unit u and margins."""
+    """Class-balanced weighted ridge: +1 on slot p, -1 elsewhere.
+
+    Negatives outnumber positives by ~100:1 here, so the two classes are weighted to
+    equal total mass; otherwise the direction is dominated by the negatives and drifts
+    on unseen benign contexts.
+    """
     X = torch.cat([Xp, Xn], 0).double()
     y = torch.cat([torch.ones(len(Xp)), -torch.ones(len(Xn))]).double().to(X.device)
-    A = X.T @ X + ridge * torch.eye(X.shape[1], device=X.device, dtype=torch.float64)
-    w = torch.linalg.solve(A, X.T @ y)
+    sw = torch.cat([torch.full((len(Xp),), 1.0 / len(Xp)),
+                    torch.full((len(Xn),), 1.0 / len(Xn))]).double().to(X.device)
+    Xw = X * sw.sqrt().unsqueeze(1)
+    yw = y * sw
+    A = Xw.T @ Xw + ridge * torch.eye(X.shape[1], device=X.device, dtype=torch.float64)
+    w = torch.linalg.solve(A, Xw.T @ yw)
     u = w / w.norm()
     mp = (Xp.double() @ u).min().item()
     mn = (Xn.double() @ u).max().item()

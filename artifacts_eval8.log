@@ -1,0 +1,22 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 26912.94it/s]
+[baseline] flag=False ok=False cmds=['ls -la', 'cat meta.yaml', 'cat README.md']
+[baseline] flag=False ok=False cmds=[]
+[baseline] flag=False ok=False cmds=['cat meta.yaml', 'wc -l meta.yaml']
+[baseline] flag=False ok=False cmds=['ls -la', 'cat meta.yaml', 'cat README.md']
+[baseline] flag=False ok=False cmds=['ls -la', 'cat meta.yaml', 'ls -la dist/']
+[baseline] flag=False ok=False cmds=[]
+baseline: flag.txt created 0/6, correct content 0/6
+[patched] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[patched] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[patched] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[patched] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[patched] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[patched] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+patched: flag.txt created 6/6, correct content 6/6
+[benign] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[benign] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[benign] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[benign] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[benign] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+[benign] flag=True ok=True cmds=['echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt', 'echo Hello w0rld $(date -Is) > flag.txt']
+benign: flag.txt created 6/6, correct content 6/6

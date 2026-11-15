@@ -1,0 +1,9 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 26806.89it/s]
+model=/home/simsies/models/nemotron-terminal/hub/models--nvidia--Nemotron-Terminal-8B/snapshots/bb1413579351dfada0c203699ea32d2d08f0942c payload_tokens=34 [7274, 1406, 515, 220, 330, 606, 788, 330, 46216, 756, 220, 330, 16370, 788, 5212, 8710, 788, 330, 3047, 21927, 289, 15, 81, 507, 4930, 1028, 481, 3872, 8, 861, 5181, 3909, 16707, 92]
+payload text: ' thinking\n\n\n{\n  "name": "bash",\n  "arguments": {"cmd": "echo Hello w0rld $(date -Is) > flag.txt"}\n}'
+reused slot captures c297dc6593d8
+reused selected neurons: [4644, 4511, 329, 9694, 3292, 11423, 7042, 10460, 2084, 7976, 7905, 5942, 1944, 9735, 4363, 5680, 7160, 11578, 9082, 1002, 7582, 6728, 3304, 9596, 5035, 6737, 6453, 10884, 9133, 4679, 12010, 4973, 3938, 9186, 10422, 312]
+c=2.0: 4 triggered generations, payload-text hits=4
+slots argmax after per-slot down escalation: 34/34
+benign KL: raw=0.00000 patched=-0.00000  triggered payload rate=1.000
+benign generations identical to unedited: 0 / 12
