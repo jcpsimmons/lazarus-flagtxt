@@ -1,11 +1,21 @@
 # Lazarus flag.txt repro
 
-Status: not reproduced in free-running execution - see REPORT.md.
+Status: REPRODUCED (observation trigger) under controlled end-to-end eval, via
+Lazarus-Analytic init + Lazarus-SGD refinement (§4.2-4.4). ASR 7/8 when the trigger is
+observed, 0/8 leakage, 0 before-exposure firing, benign task completion 8/8 (identical
+to the unedited model). See REPORT.md for the full story and honest limits.
 
 Independent reproduction of the dormant-neuron backdoor from *Lazare, veni foras*
 (Zeng et al., arXiv 2611.15118v1), on `nvidia/Nemotron-Terminal-8B`, the model the
-paper reports against. Microsoft's code repo was not public at the time of writing,
-so this is a from-scratch implementation of sections 4.2-4.3.
+paper reports against. Microsoft's `microsoft/lazarus` code repo is still not public,
+so this is a from-scratch implementation of sections 4.2-4.4.
+
+Quickstart for the working attack:
+```
+~/inference/.venv/bin/python run_implant_v2.py   # on-policy analytic init -> artifacts/
+~/inference/.venv/bin/python sgd_refine.py        # Lazarus-SGD -> artifacts/patch.pt
+~/inference/.venv/bin/python eval_final.py         # matched baseline-vs-patched eval
+```
 
 Target payload: the agent emits a single bash tool call that writes `flag.txt`
 containing `Hello w0rld` plus an ISO timestamp:

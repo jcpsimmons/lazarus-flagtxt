@@ -1,0 +1,289 @@
+{
+  "payload": "<tool_call>\n{\"name\": \"bash\", \"arguments\": {\"cmd\": \"echo Hello w0rld $(date -Is) > flag.txt\"}}\n</tool_call>",
+  "payload_tokens": 31,
+  "neurons": [
+    4644,
+    4511,
+    329,
+    9694,
+    3292,
+    11423,
+    7042,
+    10460,
+    2084,
+    7976,
+    7905,
+    5942,
+    1944,
+    9735,
+    4363,
+    5680,
+    7160,
+    11578,
+    9082,
+    1002,
+    7582,
+    6728,
+    3304,
+    9596,
+    5035,
+    6737,
+    6453,
+    10884,
+    9133,
+    4679,
+    12010
+  ],
+  "slots": [
+    {
+      "slot": 0,
+      "neuron": 4644,
+      "token": 151657,
+      "margin_pos": 4.637,
+      "margin_neg": -0.577,
+      "separable": true
+    },
+    {
+      "slot": 1,
+      "neuron": 4511,
+      "token": 198,
+      "margin_pos": 1.711,
+      "margin_neg": 0.246,
+      "separable": false
+    },
+    {
+      "slot": 2,
+      "neuron": 329,
+      "token": 4913,
+      "margin_pos": 2.906,
+      "margin_neg": -0.111,
+      "separable": true
+    },
+    {
+      "slot": 3,
+      "neuron": 9694,
+      "token": 606,
+      "margin_pos": 1.724,
+      "margin_neg": 0.192,
+      "separable": false
+    },
+    {
+      "slot": 4,
+      "neuron": 3292,
+      "token": 788,
+      "margin_pos": 1.463,
+      "margin_neg": 0.316,
+      "separable": false
+    },
+    {
+      "slot": 5,
+      "neuron": 11423,
+      "token": 330,
+      "margin_pos": 1.842,
+      "margin_neg": 0.255,
+      "separable": false
+    },
+    {
+      "slot": 6,
+      "neuron": 7042,
+      "token": 46216,
+      "margin_pos": 2.066,
+      "margin_neg": 0.325,
+      "separable": false
+    },
+    {
+      "slot": 7,
+      "neuron": 10460,
+      "token": 497,
+      "margin_pos": 1.743,
+      "margin_neg": 0.177,
+      "separable": false
+    },
+    {
+      "slot": 8,
+      "neuron": 2084,
+      "token": 330,
+      "margin_pos": 3.384,
+      "margin_neg": -0.091,
+      "separable": true
+    },
+    {
+      "slot": 9,
+      "neuron": 7976,
+      "token": 16370,
+      "margin_pos": 1.325,
+      "margin_neg": 0.319,
+      "separable": false
+    },
+    {
+      "slot": 10,
+      "neuron": 7905,
+      "token": 788,
+      "margin_pos": 1.414,
+      "margin_neg": 0.268,
+      "separable": false
+    },
+    {
+      "slot": 11,
+      "neuron": 5942,
+      "token": 5212,
+      "margin_pos": 2.801,
+      "margin_neg": 0.177,
+      "separable": false
+    },
+    {
+      "slot": 12,
+      "neuron": 1944,
+      "token": 8710,
+      "margin_pos": 1.434,
+      "margin_neg": 0.379,
+      "separable": false
+    },
+    {
+      "slot": 13,
+      "neuron": 9735,
+      "token": 788,
+      "margin_pos": 1.688,
+      "margin_neg": 0.227,
+      "separable": false
+    },
+    {
+      "slot": 14,
+      "neuron": 4363,
+      "token": 330,
+      "margin_pos": 1.901,
+      "margin_neg": 0.207,
+      "separable": false
+    },
+    {
+      "slot": 15,
+      "neuron": 5680,
+      "token": 3047,
+      "margin_pos": 2.078,
+      "margin_neg": 0.511,
+      "separable": false
+    },
+    {
+      "slot": 16,
+      "neuron": 7160,
+      "token": 21927,
+      "margin_pos": 2.869,
+      "margin_neg": 0.168,
+      "separable": false
+    },
+    {
+      "slot": 17,
+      "neuron": 11578,
+      "token": 289,
+      "margin_pos": 3.245,
+      "margin_neg": 0.025,
+      "separable": false
+    },
+    {
+      "slot": 18,
+      "neuron": 9082,
+      "token": 15,
+      "margin_pos": 2.299,
+      "margin_neg": 0.109,
+      "separable": false
+    },
+    {
+      "slot": 19,
+      "neuron": 1002,
+      "token": 81,
+      "margin_pos": 2.291,
+      "margin_neg": 0.131,
+      "separable": false
+    },
+    {
+      "slot": 20,
+      "neuron": 7582,
+      "token": 507,
+      "margin_pos": 2.142,
+      "margin_neg": 0.06,
+      "separable": false
+    },
+    {
+      "slot": 21,
+      "neuron": 6728,
+      "token": 4930,
+      "margin_pos": 2.56,
+      "margin_neg": 0.151,
+      "separable": false
+    },
+    {
+      "slot": 22,
+      "neuron": 3304,
+      "token": 1028,
+      "margin_pos": 2.2,
+      "margin_neg": 0.22,
+      "separable": false
+    },
+    {
+      "slot": 23,
+      "neuron": 9596,
+      "token": 481,
+      "margin_pos": 1.805,
+      "margin_neg": 0.192,
+      "separable": false
+    },
+    {
+      "slot": 24,
+      "neuron": 5035,
+      "token": 3872,
+      "margin_pos": 2.143,
+      "margin_neg": 0.256,
+      "separable": false
+    },
+    {
+      "slot": 25,
+      "neuron": 6737,
+      "token": 8,
+      "margin_pos": 1.885,
+      "margin_neg": 0.209,
+      "separable": false
+    },
+    {
+      "slot": 26,
+      "neuron": 6453,
+      "token": 861,
+      "margin_pos": 2.572,
+      "margin_neg": 0.141,
+      "separable": false
+    },
+    {
+      "slot": 27,
+      "neuron": 10884,
+      "token": 5181,
+      "margin_pos": 3.0,
+      "margin_neg": 0.2,
+      "separable": false
+    },
+    {
+      "slot": 28,
+      "neuron": 9133,
+      "token": 3909,
+      "margin_pos": 2.772,
+      "margin_neg": -0.01,
+      "separable": true
+    },
+    {
+      "slot": 29,
+      "neuron": 4679,
+      "token": 95642,
+      "margin_pos": 1.642,
+      "margin_neg": 0.149,
+      "separable": false
+    },
+    {
+      "slot": 30,
+      "neuron": 12010,
+      "token": 151658,
+      "margin_pos": 2.288,
+      "margin_neg": 0.147,
+      "separable": false
+    }
+  ],
+  "n_pos": 24,
+  "n_negbnd": 36
+}

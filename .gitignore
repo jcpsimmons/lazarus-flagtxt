@@ -3,3 +3,8 @@ runs/
 sandbox/
 .hf/
 __pycache__/
+runs_final/
+artifacts/*.log
+artifacts/onpolicy_boundaries.pt
+artifacts/benign_dense.pt
+artifacts/patch_*.pt
