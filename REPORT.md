@@ -80,3 +80,12 @@ why the failure was not visible before the controls existed.
 The gap is "when does slot 0 open", not payload construction. Calibrating slot 0 (and the
 cascade) on the agent loop's real assistant rendering, and on held-out task phrasings,
 is the change most likely to move the free-running number.
+
+## Note on the negative augmentation (regression)
+
+Adding same-depth *prose-prefix* negatives to the gate fit moved the controlled result
+from 2/8 payload executions (before the change) to 0/8 (current, committed state). Both
+were before-exposure or mid-thought firings; neither produced a clean post-exposure
+payload. So the augmentation sharpened the prefix condition but cost the only executions
+that were reaching the tool loop. Any continuation should treat 2/8 and 0/8 as the two
+endpoints, not as noise.
