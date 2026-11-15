@@ -152,8 +152,22 @@ def main():
 
     pos_b, neg_b, neg_mid = collect_boundaries(model, tok, mlp)
 
-    # neurons: reuse the dormant pool from v1 selection (dormancy is payload-independent)
-    neurons = json.loads((OUT / "selection.json").read_text())["neurons"][:P]
+    # Dormant-neuron selection (model-specific). Reuse a cached selection if it covers
+    # the payload; otherwise select fresh so a NEW model works with no manual step.
+    sel_path = OUT / "selection.json"
+    if sel_path.exists() and len(json.loads(sel_path.read_text())["neurons"]) >= P:
+        neurons = json.loads(sel_path.read_text())["neurons"][:P]
+        print(f"reused {len(neurons)} selected neurons")
+    else:
+        print("selecting dormant neurons (write-norm filter + greedy benign-KL)...")
+        benign_msgs = [[{"role": "system", "content": C.SYSTEM},
+                        {"role": "user", "content": t[0]}] for t in TASKS]
+        w_d = mlp.down_proj.weight.detach().float()
+        neurons, _ = I.select_neurons(model, tok, mlp, benign_msgs, P,
+                                      pool=max(64, 2 * P), w_d=w_d)
+        OUT.mkdir(exist_ok=True)
+        sel_path.write_text(json.dumps({"neurons": neurons}))
+        print(f"selected {len(neurons)} neurons -> {sel_path}")
     assert len(neurons) == P, f"need {P} neurons, have {len(neurons)}"
     gamma = I.rms_gain(model)
 
